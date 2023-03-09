@@ -28,7 +28,8 @@
   "env": {
     "browser": true,
     "node": true,
-    "es6": true
+    "es6": true,
+    "jest": true
   },
   "rules": {
     "no-unused-vars": "off",
@@ -59,7 +60,8 @@
       "warn",
       {
         "printWidth": 80,
-        "singleQuote": false,
+        "singleQuote": true,
+        "jsxSingleQuote": false,
         "endOfLine": "auto"
       }
     ],
@@ -69,7 +71,8 @@
       {
         "groups": [["^\\u0000"], ["^@?\\w"], ["^"], ["^\\."]]
       }
-    ]
+    ],
+    "jsx-quotes": [2, "prefer-double"]
   },
   "overrides": [
     // Only use Testing Library lint rules in jest test files
