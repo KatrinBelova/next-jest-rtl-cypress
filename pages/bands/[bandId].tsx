@@ -1,10 +1,10 @@
-import { Box, Heading, Link, Text, VStack } from "@chakra-ui/react";
-import Image from "next/image";
+import { Box, Heading, Link, Text, VStack } from '@chakra-ui/react';
+import Image from 'next/image';
 
-import { LoadingSpinner } from "@/components/_common/LoadingSpinner";
-import { QueryError } from "@/components/_common/QueryError";
-import { getBandById, getBands } from "@/lib/features/bands/queries";
-import type { Band } from "@/lib/features/bands/types";
+import { LoadingSpinner } from '@/components/_common/LoadingSpinner';
+import { QueryError } from '@/components/_common/QueryError';
+import { getBandById, getBands } from '@/lib/features/bands/queries';
+import type { Band } from '@/lib/features/bands/types';
 // SSG reference:
 // https://nextjs.org/docs/basic-features/pages#scenario-2-your-page-paths-depend-on-external-data
 
@@ -21,7 +21,7 @@ export async function getStaticProps({
     band = await getBandById(Number(bandId));
   } catch (e) {
     if (e instanceof Error) error = e.message;
-    if (e && typeof e === "object" && "toString" in e) error = e.toString();
+    if (e && typeof e === 'object' && 'toString' in e) error = e.toString();
   }
   return { props: { band, error } };
 }
@@ -36,7 +36,7 @@ export async function getStaticPaths() {
   // Pre-render only these paths at build time.
   // { fallback: blocking } means pages for other paths
   //    get generated at request time (SSR).
-  return { paths, fallback: "blocking" };
+  return { paths, fallback: 'blocking' };
 }
 
 export default function BandPage({
@@ -54,7 +54,7 @@ export default function BandPage({
       {!band ? (
         <LoadingSpinner display={!!band} />
       ) : (
-        <VStack display={band ? "inherit" : "none"}>
+        <VStack display={band ? 'inherit' : 'none'}>
           <Heading>{band.name}</Heading>
           <Text fontSize="xl" pb={5}>
             {band.description}
@@ -74,7 +74,7 @@ export default function BandPage({
             fontFamily="Lato"
             fontSize="sm"
           >
-            photo by{" "}
+            photo by{' '}
             <Link href={band.image.authorLink} isExternal>
               {band.image.authorName}
             </Link>

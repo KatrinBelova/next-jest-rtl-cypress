@@ -1,7 +1,7 @@
-import { useRouter } from "next/router";
-import React from "react";
+import { useRouter } from 'next/router';
+import React from 'react';
 
-import { Reservation } from "@/components/reservations/Reservation";
+import { Reservation } from '@/components/reservations/Reservation';
 
 export default function Reservations() {
   const router = useRouter();

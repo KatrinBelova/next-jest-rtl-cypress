@@ -1,7 +1,7 @@
-import { Box, Heading } from "@chakra-ui/react";
-import Head from "next/head";
+import { Box, Heading } from '@chakra-ui/react';
+import Head from 'next/head';
 
-import { SplashImage } from "@/components/home/SplashImage";
+import { SplashImage } from '@/components/home/SplashImage';
 
 export default function Home(): React.ReactElement {
   return (
