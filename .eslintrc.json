@@ -13,7 +13,8 @@
     "simple-import-sort",
     "prettier",
     "react-hooks",
-    "@typescript-eslint"
+    "@typescript-eslint",
+    "plugin:cypress/recommended"
   ],
   "settings": {
     "import/resolver": {
