@@ -1,7 +1,7 @@
-import type { NextApiRequest, NextApiResponse } from "next";
+import type { NextApiRequest, NextApiResponse } from 'next';
 
-import { createHandler } from "@/lib/api/handler";
-import { addBand } from "@/lib/features/bands/queries";
+import { createHandler } from '@/lib/api/handler';
+import { addBand } from '@/lib/features/bands/queries';
 
 const handler = createHandler();
 handler.post(async (req: NextApiRequest, res: NextApiResponse) => {
@@ -12,8 +12,9 @@ handler.post(async (req: NextApiRequest, res: NextApiResponse) => {
   // in this app, this endpoint will be hit by testing directly to test on-demand ISR revalidation
 
   // Check for secret to confirm this is a valid request
+
   if (req.query.secret !== process.env.REVALIDATION_SECRET) {
-    return res.status(401).json({ message: "Invalid revalidation token" });
+    return res.status(401).json({ message: 'Invalid revalidation token' });
   }
 
   // add band (here is where authorization would be validated)
@@ -21,9 +22,7 @@ handler.post(async (req: NextApiRequest, res: NextApiResponse) => {
   const addedBand = await addBand(newBand);
 
   // revalidate bands page for ISR
-  // note: this will change to `res.revalidate` when
-  // this feature is out of beta
-  await res.unstable_revalidate("/bands");
+  await res.revalidate('/bands');
   return res.json({ band: addedBand, revalidated: true });
 });
 

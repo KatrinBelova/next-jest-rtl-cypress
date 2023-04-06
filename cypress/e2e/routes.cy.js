@@ -51,6 +51,6 @@ it('displays name for band that was not present at build time', () => {
   const newBand = generateNewBand(bandId);
   cy.task('db:reset').task('addBand', newBand).visit(`/bands/${bandId}`);
   cy.findByRole('heading', {
-    name: /Avalanche of Cheese/i,
+    name: /Metalica/i,
   }).should('exist');
 });
