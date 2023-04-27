@@ -40,7 +40,6 @@ test('GET /api/user/[userId]/reservations returns correct number of reservations
   await testApiHandler({
     handler: userReservationsHandler,
     paramsPatcher: (params) => {
-      // eslint-disable-next-line no-param-reassign
       params.userId = 1;
     },
     test: async ({ fetch }) => {
@@ -65,6 +64,21 @@ test('GET /api/user/[userId]/reservations returns no reservations if user does n
 
       expect(res.status).toEqual(200);
       expect(json.userReservations).toHaveLength(0);
+    },
+  });
+});
+
+test('GET /api/user/[userId]/reservations returns 401 status when anauthenticated', async () => {
+  mockValidateToken.mockResolvedValue(false);
+
+  await testApiHandler({
+    handler: userReservationsHandler,
+    paramsPatcher: (params) => {
+      params.userId = 1;
+    },
+    test: async ({ fetch }) => {
+      const res = await fetch({ method: 'GET' });
+      expect(res.status).toBe(401);
     },
   });
 });
