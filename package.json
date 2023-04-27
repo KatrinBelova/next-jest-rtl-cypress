@@ -46,6 +46,7 @@
     "swr": "^1.2.2"
   },
   "devDependencies": {
+    "@jest/globals": "^29.5.0",
     "@testing-library/cypress": "^9.0.0",
     "@testing-library/jest-dom": "5.16.1",
     "@testing-library/react": "12.1.2",
@@ -62,8 +63,9 @@
     "eslint-config-next": "^12.1.0",
     "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-testing-library": "^5.0.1",
-    "jest": "27.4.5",
+    "jest": "^27.4.5",
     "msw": "^1.1.0",
+    "next-test-api-route-handler": "^3.1.8",
     "start-server-and-test": "^2.0.0",
     "typescript": "4.5.4",
     "typescript-eslint": "^0.0.1-alpha.0"
